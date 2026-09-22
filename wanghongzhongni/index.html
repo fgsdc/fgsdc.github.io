@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="网红仲尼个人资料详细介绍，涵盖其早年经历、主播生涯、代表作、风格特色及粉丝互动方式。了解网红仲尼的成名之路与最新动态。">
+    <meta name="keywords" content="网红仲尼,仲尼个人资料,仲尼简介,网红仲尼直播,仲尼粉丝">
+    <title>网红仲尼-个人资料与成名经历详细介绍</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            font-size: 1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a.active {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Profile Grid */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 30px;
+            text-align: center;
+            position: sticky;
+            top: 100px;
+        }
+
+        .avatar-wrapper {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--bg-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .avatar-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .profile-title {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .info-list {
+            text-align: left;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .info-label {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Main Content */
+        .bio-content {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .bio-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-color);
+        }
+
+        .bio-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .bio-content h3 {
+            font-size: 1.2rem;
+            margin: 30px 0 15px;
+            color: var(--primary-color);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--card-bg);
+            border: 3px solid var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Features/Works */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-thumb {
+            height: 160px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .work-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .work-info {
+            padding: 15px;
+        }
+
+        .work-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .work-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--card-bg);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-secondary);
+            display: none;
+            padding-left: 10px;
+            border-left: 3px solid var(--bg-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-container nav.show {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                position: static;
+                order: -1;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">仲尼<span>资料库</span></a>
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#profile" class="active">个人资料</a></li>
+                    <li><a href="#career">成名经历</a></li>
+                    <li><a href="#works">代表作品</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>网红仲尼</h1>
+                <p>知名主播与内容创作者，以独特的风格和幽默的解说在互联网上积累了大量人气。</p>
+                <div class="hero-tags">
+                    <span class="tag">游戏主播</span>
+                    <span class="tag">娱乐解说</span>
+                    <span class="tag">百万粉丝</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <section class="section" id="profile">
+            <div class="container">
+                <div class="profile-grid">
+                    <!-- Sidebar Profile Card -->
+                    <aside class="profile-card">
+                        <div class="avatar-wrapper">
+                            <!-- Using a generic avatar placeholder as specific image URL is not guaranteed to persist -->
+                            <img src="https://picsum.photos/seed/zhongni/300/300" alt="网红仲尼头像">
+                        </div>
+                        <h2 class="profile-name">仲尼</h2>
+                        <p class="profile-title">知名游戏主播 / 创作者</p>
+                        
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-label">昵称</span>
+                                <span class="info-value">仲尼</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">领域</span>
+                                <span class="info-value">游戏、娱乐、脱口秀</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">活跃平台</span>
+                                <span class="info-value">Bilibili、斗鱼、抖音</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">粉丝量级</span>
+                                <span class="info-value">百万级</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">直播时间</span>
+                                <span class="info-value">每日晚间</span>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="#" class="social-btn" title="Bilibili">B</a>
+                            <a href="#" class="social-btn" title="Douyu">D</a>
+                            <a href="#" class="social-btn" title="Weibo">W</a>
+                        </div>
+                    </aside>
+
+                    <!-- Detailed Bio -->
+                    <article class="bio-content">
+                        <h2>关于仲尼</h2>
+                        <p>仲尼是一位在二次元及泛娱乐领域颇具影响力的网络红人。他以其犀利的语言风格、独特的个人魅力以及对游戏内容的深度理解而受到观众的喜爱。在直播过程中，他不仅展示高超的游戏技巧，更擅长通过幽默的解说和临场反应制造笑点，与弹幕观众形成了良好的互动氛围。</p>
+                        
+                        <h3>风格特色</h3>
+                        <p>仲尼的内容风格通常被观众描述为“高能”且“真实”。他善于在常规的游戏流程中寻找趣味点，无论是游戏的BUG利用，还是对剧情的另类解读，都能给观众带来新鲜感。此外，他在直播中的即兴发挥和“金句”频出，也使其成为了许多网友日常消遣时的关注对象。</p>
+
+                        <h3>内容领域</h3>
+                        <p>虽然主要活跃于游戏直播领域，但仲尼的涉猎范围较广。除了热门网络游戏外，他也涉足独立游戏、主机游戏以及一些非游戏类的娱乐脱口秀直播，展现了他作为内容创作者的多样化能力。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Timeline -->
+        <section class="section" id="career">
+            <div class="container">
+                <h2 class="section-title">成名经历</h2>
+                <p class="section-subtitle">从默默无闻到全网知名的成长之路</p>
+                
+                <div class="bio-content" style="padding: 30px;">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">早期阶段</div>
+                            <div class="timeline-title">初入网络</div>
+                            <p>开始尝试在各大直播平台进行游戏直播，积累了最初的观众群体，逐渐摸索出适合自己的解说风格。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">风格确立</div>
+                            <div class="timeline-title">特色鲜明</div>
+                            <p>形成了独特的语言体系和互动模式，开始以“仲尼”这个名字在特定圈层内获得关注，粉丝数稳步上升。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">爆发期</div>
+                            <div class="timeline-title">全网走红</div>
+                            <p>凭借一系列高热度的直播切片和爆款短视频，突破圈层限制，吸引了大量泛娱乐用户关注，成为头部主播之一。</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">近期动态</div>
+                            <div class="timeline-title">持续输出</div>
+                            <p>持续保持高频次直播，拓展内容边界，并积极参与各类网络活动，维持着高人气和活跃度。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Representative Works -->
+        <section class="section" id="works">
+            <div class="container">
+                <h2 class="section-title">代表作品</h2>
+                <p class="section-subtitle">精选热门视频与直播片段</p>
+                
+                <div class="works-grid">
+                    <div class="work-card">
+                        <div class="work-thumb">
+                            <img src="https://picsum.photos/seed/game1/400/300" alt="热门游戏解说">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-title">某热门游戏高光时刻合集</span>
+                            <p class="work-desc">收录了仲尼在直播中多次打出精彩操作的视频片段，剪辑紧凑，笑点密集。</p>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <div class="work-thumb">
+                            <img src="https://picsum.photos/seed/game2/400/300" alt="游戏攻略">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-title">深度游戏攻略解说</span>
+                            <p class="work-desc">详细讲解游戏机制与通关技巧，帮助新手玩家快速上手。</p>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <div class="work-thumb">
+                            <img src="https://picsum.photos/seed/game3/400/300" alt="互动时刻">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-title">直播间名场面</span>
+                            <p class="work-desc">展示直播间与粉丝互动的趣味瞬间，展现主播亲和力的一面。</p>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <div class="work-thumb">
+                            <img src="https://picsum.photos/seed/game4/400/300" alt="跨界尝试">
+                        </div>
+                        <div class="work-info">
+                            <span class="work-title">跨界娱乐节目</span>
+                            <p class="work-desc">尝试脱离游戏领域，参与综艺类或娱乐类的短视频拍摄。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section faq-section" id="faq">
+            <div class="container">
+                <h2 class="section-title">常见问答</h2>
+                <p class="section-subtitle">关于网红仲尼的常见问题解答</p>
+                
+                <div class="bio-content" style="padding: 20px;">
+                    <div class="faq-item">
+                        <div class="faq-question">仲尼现在主要直播什么游戏？</div>
+                        <div class="faq-answer">
+                            <p>仲尼的直播内容非常灵活，通常以热门网络游戏为主，同时也会根据当天的兴致直播独立游戏或主机游戏。建议关注其官方账号获取最新的直播排期。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何进入仲尼的直播间？</div>
+                        <div class="faq-answer">
+                            <p>您可以通过Bilibili、斗鱼等主流直播平台，搜索“仲尼”或“仲尼直播”找到其直播间。不同平台可能有不同的直播安排。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">仲尼有哪些社交账号？</div>
+                        <div class="faq-answer">
+                            <p>除了直播平台账号外，他通常会在微博等社交平台发布日常动态和互动。具体的账号信息可在本页面的“个人资料”侧边栏中找到链接。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2023 网红仲尼资料库. All Rights Reserved.</p>
+            <p>本页面为粉丝整理的资料展示站，非官方主页。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('show');
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

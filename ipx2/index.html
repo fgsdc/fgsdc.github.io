@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IPX247 - 专业IP地址查询与网络诊断工具。提供实时IP定位、网络延迟测试、IP历史记录查询及网络安全分析服务。">
+    <meta name="keywords" content="IPX247, IP地址查询, IP定位, 网络诊断, 域名解析, IP历史, 在线工具">
+    <title>IPX247 - 专业IP地址查询与网络诊断服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-outline {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: #eff6ff;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+            border-radius: 16px;
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        /* Search Box */
+        .search-box {
+            background: var(--card-bg);
+            padding: 8px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            display: inline-flex;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid var(--border-color);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Features Section */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: var(--border-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Tool Showcase */
+        .tool-section {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .tool-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .tool-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .tool-info p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .tool-preview {
+            background-color: #0f172a;
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #e2e8f0;
+        }
+
+        .terminal-line {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .terminal-line.command { color: #60a5fa; }
+        .terminal-line.output { color: #94a3b8; }
+        .terminal-line.success { color: #34d399; }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        details {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            list-style: none;
+            position: relative;
+            padding-right: 40px;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-content {
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-light);
+            margin-top: 12px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 16px;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 0.9rem;
+            }
+
+            .tool-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                IPX247<span>.net</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#tools">工具</a></li>
+                    <li><a href="#api">API</a></li>
+                    <li><a href="#about">关于</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#tools" class="btn btn-outline">开始查询</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>精准的 IP 地址查询与网络诊断</h1>
+            <p>IPX247 提供即时 IP 定位、网络延迟测试、ASN 信息查询及历史记录追踪，帮助您快速了解网络环境与设备状态。</p>
+            <div class="search-box">
+                <input type="text" id="ipInput" placeholder="输入 IP 地址、域名或 URL 进行查询..." value="8.8.8.8">
+                <button onclick="handleSearch()">立即查询</button>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="tools">
+            <div class="section-title">核心功能</div>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>IP 地址定位</h3>
+                    <p>基于 GeoIP2 数据库，精准获取 IP 所在的国家、省份、城市及运营商信息，支持 IPv4 与 IPv6。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>网络延迟测试</h3>
+                    <p>多节点 Ping 测试，实时计算网络延迟、丢包率及抖动情况，优化您的网络连接质量。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📜</div>
+                    <h3>IP 历史记录</h3>
+                    <p>查询 IP 的历史变更记录，了解该 IP 地址在不同时间段的使用情况与归属变动。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>安全分析</h3>
+                    <p>集成威胁情报数据，快速识别 IP 是否属于恶意代理、VPN 或垃圾邮件发送源。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Tool Showcase -->
+        <section id="api">
+            <div class="section-title">开发者工具</div>
+            <div class="tool-section">
+                <div class="tool-layout">
+                    <div class="tool-info">
+                        <h3>RESTful API 接口</h3>
+                        <p>IPX247 为开发者提供稳定、快速的 API 服务，支持 JSON 格式返回，无需注册即可获取基础数据。</p>
+                        <ul style="margin-bottom: 20px; color: var(--text-light);">
+                            <li style="margin-bottom: 8px;">✅ 免费额度充足，适合小型项目</li>
+                            <li style="margin-bottom: 8px;">✅ 全球节点覆盖，响应速度快</li>
+                            <li style="margin-bottom: 8px;">✅ 支持域名解析与反向 DNS 查询</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">查看 API 文档</a>
+                    </div>
+                    <div class="tool-preview">
+                        <span class="terminal-line command">$ curl ipx247.net/api/8.8.8.8</span>
+                        <span class="terminal-line output">{</span>
+                        <span class="terminal-line output">  "status": "success",</span>
+                        <span class="terminal-line output">  "query": "8.8.8.8",</span>
+                        <span class="terminal-line output">  "country": "United States",</span>
+                        <span class="terminal-line output">  "region": "California",</span>
+                        <span class="terminal-line output">  "isp": "Google LLC",</span>
+                        <span class="terminal-line output">  "asn": "15169",</span>
+                        <span class="terminal-line output">  "latency": 24</span>
+                        <span class="terminal-line output">}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-container">
+            <div class="section-title">常见问题</div>
+            <details>
+                <summary>IPX247 的数据来源是什么？</summary>
+                <div class="faq-content">
+                    我们的 IP 数据主要整合自 MaxMind GeoLite2 数据库以及多家网络安全公司的实时威胁情报库，确保信息的准确性与时效性。
+                </div>
+            </details>
+            <details>
+                <summary>查询 IP 地址是否需要付费？</summary>
+                <div class="faq-content">
+                    基础的 IP 信息查询和 API 调用在免费额度内无需付费。对于高并发或需要企业级数据的专业用户，我们提供订阅服务。
+                </div>
+            </details>
+            <details>
+                <summary>支持 IPv6 地址查询吗？</summary>
+                <div class="faq-content">
+                    是的，IPX247 完全支持 IPv6 地址的解析与定位功能。
+                </div>
+            </details>
+            <details>
+                <summary>如何使用 API 集成到我的网站？</summary>
+                <div class="faq-content">
+                    您只需将请求发送到我们的 API 端点，并在返回的 JSON 数据中解析所需字段即可。详细的文档请参考我们的开发者中心。
+                </div>
+            </details>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    IPX247<span>.net</span>
+                </a>
+                <p>致力于为全球用户提供最便捷、最专业的 IP 网络工具与数据服务。</p>
+            </div>
+            <div class="footer-col">
+                <h4>产品</h4>
+                <ul>
+                    <li><a href="#">IP 查询</a></li>
+                    <li><a href="#">Whois 查询</a></li>
+                    <li><a href="#">Ping 测试</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>资源</h4>
+                <ul>
+                    <li><a href="#">API 文档</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">状态监控</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于</h4>
+                <ul>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023-2024 IPX247. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSearch() {
+            const input = document.getElementById('ipInput');
+            const query = input.value.trim();
+            if (query) {
+                // 模拟查询过程，实际项目中会调用后端接口
+                console.log('正在查询 IP: ' + query);
+                // 简单的视觉反馈
+                const btn = document.querySelector('.search-box button');
+                const originalText = btn.innerText;
+                btn.innerText = '查询中...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    alert('模拟结果：\nIP: ' + query + '\n国家: 中国\n运营商: 模拟数据\n延迟: 12ms');
+                }, 800);
+            } else {
+                input.placeholder = '请输入有效的 IP 地址或域名';
+                input.focus();
+            }
+        }
+
+        // 允许在输入框按回车触发查询
+        document.getElementById('ipInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
+        });
+    </script>
+</body>
+</html>

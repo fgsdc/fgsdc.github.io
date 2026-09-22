@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="科健手机官网提供科健K-Joy系列经典机型回顾、历史产品图赏、维修保养指南及旧机回收服务。致力于还原经典设计，传承国货情怀，为老用户与收藏爱好者提供专业的手机资讯与解决方案。">
+    <meta name="keywords" content="科健手机, K-Joy, 科健K-Joy, 国产手机, 经典手机, 手机维修, 旧手机回收, 科健历史">
+    <title>科健手机-经典国货情怀与旧机维修回收指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #c92020; /* 科健经典红 */
+            --primary-dark: #a01515;
+            --secondary-color: #f4f4f4;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-body: #ffffff;
+            --bg-section: #f9f9f9;
+            --border-radius: 8px;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            height: var(--header-height);
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 16px;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions button {
+            background: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .header-actions button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .tag {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* 经典回顾板块 */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 220px;
+            background: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: #fff;
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            min-height: 42px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-light);
+            border-top: 1px solid #f5f5f5;
+            padding-top: 15px;
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        /* 维修与回收板块 */
+        .services-section {
+            background-color: var(--bg-section);
+        }
+
+        .services-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .services-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .services-list {
+            margin-top: 30px;
+        }
+
+        .service-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .service-text h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .service-text p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .services-visual {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: #eee;
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            background: #fff;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+
+        .step p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            background: #fff;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-light);
+            display: none;
+            padding-left: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* 页脚 */
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .services-wrapper {
+                flex-direction: column;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" rx="4" fill="#c92020"/>
+                    <path d="M7 7H17V17H7V7Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M10 12H14" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                科健手机 <span>KEJIAN</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hero" class="active">首页</a></li>
+                    <li><a href="#products">经典机型</a></li>
+                    <li><a href="#services">维修回收</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button>联系客服</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>科健手机：致敬经典国货</h1>
+                <p>重温K-Joy系列的辉煌岁月，探索国产手机发展的历史足迹。我们提供经典机型图赏、专业维修服务及旧机回收方案，让情怀落地，让设备重生。</p>
+                <div class="hero-tags">
+                    <span class="tag">K-Joy 系列</span>
+                    <span class="tag">经典设计</span>
+                    <span class="tag">维修保养</span>
+                    <span class="tag">旧机回收</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>经典机型回顾</h2>
+                    <p>那些年，我们手中的“大哥大”与时尚翻盖机</p>
+                </div>
+                
+                <div class="product-grid">
+                    <!-- Card 1 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <span class="card-badge">经典</span>
+                            <img src="https://picsum.photos/seed/kejian1/400/300" alt="科健K-Joy 518手机" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">科健 K-Joy 518</h3>
+                            <p class="card-desc">经典的翻盖造型，内置FM收音机，支持JAVA扩展，曾是许多年轻人梦寐以求的时尚单品。</p>
+                            <div class="card-footer">
+                                <span>发布于 2005年</span>
+                                <a href="#" class="btn-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <span class="card-badge">经典</span>
+                            <img src="https://picsum.photos/seed/kejian2/400/300" alt="科健K-Joy 688手机" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">科健 K-Joy 688</h3>
+                            <p class="card-desc">超薄直板设计，支持MP3播放，外观极具未来感，代表了当时国产手机在工业设计上的突破。</p>
+                            <div class="card-footer">
+                                <span>发布于 2006年</span>
+                                <a href="#" class="btn-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <span class="card-badge">商务</span>
+                            <img src="https://picsum.photos/seed/kejian3/400/300" alt="科健K-Joy 9000手机" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">科健 K-Joy 9000</h3>
+                            <p class="card-desc">滑盖设计，配备高清彩屏，具备商务办公功能，是当时高端商务人士的常用设备。</p>
+                            <div class="card-footer">
+                                <span>发布于 2007年</span>
+                                <a href="#" class="btn-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4 -->
+                    <article class="product-card">
+                        <div class="card-image">
+                            <span class="card-badge">经典</span>
+                            <img src="https://picsum.photos/seed/kejian4/400/300" alt="科健K-Joy 7180手机" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">科健 K-Joy 7180</h3>
+                            <p class="card-desc">具备双卡双待功能，支持手写输入，在功能上进一步满足了中国用户的使用习惯。</p>
+                            <div class="card-footer">
+                                <span>发布于 2008年</span>
+                                <a href="#" class="btn-link">查看详情 &rarr;</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services-section">
+            <div class="container">
+                <div class="services-wrapper">
+                    <div class="services-content">
+                        <div class="section-title" style="text-align: left; margin-bottom: 30px;">
+                            <h2>维修与回收服务</h2>
+                            <p style="color: var(--text-light);">为您的旧爱设备提供专业的维护与处置方案</p>
+                        </div>
+                        
+                        <div class="services-list">
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                    </svg>
+                                </div>
+                                <div class="service-text">
+                                    <h3>专业屏幕维修</h3>
+                                    <p>针对科健手机常见的翻盖轴松动、屏幕碎裂、按键失灵等问题提供原厂配件级维修服务。</p>
+                                </div>
+                            </div>
+
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+                                        <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+                                        <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
+                                    </svg>
+                                </div>
+                                <div class="service-text">
+                                    <h3>旧机环保回收</h3>
+                                    <p>提供公平、透明的旧机回收估价服务，通过正规渠道处理废旧电子产品，支持环保循环。</p>
+                                </div>
+                            </div>
+
+                            <div class="service-item">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                                    </svg>
+                                </div>
+                                <div class="service-text">
+                                    <h3>配件与数据恢复</h3>
+                                    <p>提供电池、充电器等配件供应，以及针对存储卡和SIM卡的数据恢复咨询。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="services-visual">
+                        <h3>回收流程</h3>
+                        <div class="steps">
+                            <div class="step">
+                                <div class="step-num">1</div>
+                                <p>在线估价</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">2</div>
+                                <p>邮寄检测</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">3</div>
+                                <p>确认收货</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">4</div>
+                                <p>打款结算</p>
+                            </div>
+                        </div>
+                        <button style="margin-top: 30px; width: 100%; padding: 12px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">立即申请估价</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section faq-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题</h2>
+                    <p>关于科健手机维修与使用的解答</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">科健手机现在还能正常接收短信吗？ <span>+</span></div>
+                        <div class="faq-answer">科健手机使用的是GSM网络，虽然运营商网络已升级，但只要手机卡有余额且信号良好，依然可以正常接收短信和拨打电话。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">翻盖手机轴松动怎么处理？ <span>+</span></div>
+                        <div class="faq-answer">建议联系专业的手机维修店进行加固。自行拆卸可能导致内部排线损坏，导致屏幕失灵。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">旧机回收大概能值多少钱？ <span>+</span></div>
+                        <div class="faq-answer">价格取决于手机的品牌、型号、外观成色以及是否开机。一般来说，成色较新的科健经典机型回收价在几十元到几百元不等。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何备份手机里的旧照片？ <span>+</span></div>
+                        <div class="faq-answer">科健手机通常支持蓝牙传输或数据线连接电脑（需配合特定驱动）。建议将照片导出后保存到电脑硬盘中。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于科健</h4>
+                    <ul>
+                        <li><a href="#">品牌历史</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>产品服务</h4>
+                    <ul>
+                        <li><a href="#">经典机型图赏</a></li>
+                        <li><a href="#">手机维修中心</a></li>
+                        <li><a href="#">旧机回收流程</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="font-size: 14px; line-height: 1.8;">科健手机情怀站致力于保护和传承国产手机的历史文化。</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 科健手机情怀站. All Rights Reserved. 本站为非商业性怀旧整理网站。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ折叠逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                
+                const icon = item.querySelector('span');
+                if (parent.classList.contains('active')) {
+                    icon.textContent = '-';
+                } else {
+                    icon.textContent = '+';
+                }
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+  </html>

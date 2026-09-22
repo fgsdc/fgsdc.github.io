@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="买电影票首选在线购票平台，提供最新电影排期、IMAX/杜比全景声影院预订、会员优惠及团购服务。支持在线选座、快速出票，热门影片实时更新。">
+    <meta name="keywords" content="买电影票,在线选座,电影票预订,IMAX影票,团购电影票,最新电影排期">
+    <title>买电影票-热门影片在线选座与团购预订平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e50914; /* 影院红 */
+            --primary-hover: #b20710;
+            --secondary-color: #141414; /* 深黑背景 */
+            --text-light: #ffffff;
+            --text-gray: #b3b3b3;
+            --bg-section: #121212;
+            --card-bg: #1f1f1f;
+            --accent-gold: #f5c518;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(20, 20, 20, 0.95);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: var(--text-gray);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-light);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-login {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero 区域 - 搜索与推荐 */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            color: var(--text-gray);
+            margin-bottom: 32px;
+            font-size: 18px;
+        }
+
+        .search-bar {
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 0 20px;
+            font-size: 16px;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-bar button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-bar button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* 通用 Section 样式 */
+        section {
+            padding: 48px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        .section-more {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .section-more:hover {
+            text-decoration: underline;
+        }
+
+        /* 电影卡片网格 */
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 24px;
+        }
+
+        .movie-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .movie-poster {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-color: #333;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 12px;
+        }
+
+        .movie-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            font-size: 12px;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .movie-rating {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .movie-tags span {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 6px;
+            border: 1px solid #444;
+            border-radius: 4px;
+            margin-right: 4px;
+            color: #ccc;
+        }
+
+        /* 影院列表 */
+        .cinema-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .cinema-item {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .cinema-item:hover {
+            background-color: #2a2a2a;
+        }
+
+        .cinema-info h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .cinema-info p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .cinema-tags {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .tag.imax { background-color: rgba(255,255,255,0.1); color: #fff; }
+        .tag.dolby { background-color: rgba(255,255,255,0.1); color: #fff; }
+
+        /* 特性/优势区 */
+        .features {
+            background-color: var(--bg-section);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .feature-item h4 {
+            margin: 12px 0 8px;
+            font-size: 18px;
+        }
+
+        .feature-item p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+        }
+
+        /* 常见问题 */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .faq-item h4 {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .faq-item p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #000;
+            padding: 48px 0 24px;
+            margin-top: 48px;
+            border-top: 1px solid #222;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-col h5 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--text-light);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            padding-top: 24px;
+            border-top: 1px solid #222;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">Cine<span>Pick</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">热映影片</a></li>
+                    <li><a href="#">即将上映</a></li>
+                    <li><a href="#">IMAX 专厅</a></li>
+                    <li><a href="#">会员权益</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-login">登录</a>
+                <a href="#" class="btn-primary">注册会员</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 搜索区 -->
+        <section class="hero">
+            <div class="container">
+                <h1>探索最新好片，在线轻松买电影票</h1>
+                <p>全网排期实时同步，支持在线选座，IMAX/杜比全景声一票难求？现在就抢。</p>
+                <div class="search-bar">
+                    <input type="text" placeholder="搜索电影名称、影院或导演..." aria-label="搜索电影">
+                    <button type="button">搜索</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 热门电影推荐 -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">本周热映</h2>
+                    <a href="#" class="section-more">查看全部 &rarr;</a>
+                </div>
+                <div class="movie-grid">
+                    <!-- 电影卡片 1 -->
+                    <article class="movie-card">
+                        <img src="https://picsum.photos/seed/movie1/300/450" alt="星际穿越2海报" class="movie-poster">
+                        <div class="movie-info">
+                            <h3 class="movie-title">星际穿越2：未知视界</h3>
+                            <div class="movie-meta">
+                                <span>2小时15分</span>
+                                <span class="movie-rating">9.2分</span>
+                            </div>
+                            <div class="movie-tags">
+                                <span>科幻</span>
+                                <span>冒险</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- 电影卡片 2 -->
+                    <article class="movie-card">
+                        <img src="https://picsum.photos/seed/movie2/300/450" alt="都市传说海报" class="movie-poster">
+                        <div class="movie-info">
+                            <h3 class="movie-title">午夜都市传说</h3>
+                            <div class="movie-meta">
+                                <span>1小时48分</span>
+                                <span class="movie-rating">8.5分</span>
+                            </div>
+                            <div class="movie-tags">
+                                <span>悬疑</span>
+                                <span>惊悚</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- 电影卡片 3 -->
+                    <article class="movie-card">
+                        <img src="https://picsum.photos/seed/movie3/300/450" alt：="爱情喜剧海报" class="movie-poster">
+                        <div class="movie-info">
+                            <h3 class="movie-title">巴黎假日</h3>
+                            <div class="movie-meta">
+                                <span>1小时55分</span>
+                                <span class="movie-rating">7.8分</span>
+                            </div>
+                            <div class="movie-tags">
+                                <span>爱情</span>
+                                <span>喜剧</span>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- 电影卡片 4 -->
+                    <article class="movie-card">
+                        <img src="https://picsum.photos/seed/movie4/300/450" alt="动作大片海报" class="movie-poster">
+                        <div class="movie-info">
+                            <h3 class="movie-title">雷霆行动</h3>
+                            <div class="movie-meta">
+                                <span>2小时05分</span>
+                                <span class="movie-rating">8.9分</span>
+                            </div>
+                            <div class="movie-tags">
+                                <span>动作</span>
+                                <span>剧情</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色影院服务 -->
+        <section style="background-color: var(--bg-section);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">观影体验升级</h2>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎬</div>
+                        <h4>在线选座</h4>
+                        <p>实时查看座位图，随心挑选最佳观影位置</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🎟️</div>
+                        <h4>电子票务</h4>
+                        <p>购票成功后直接发送手机，无需取票，扫码入场</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">⭐</div>
+                        <h4>会员积分</h4>
+                        <p>消费积分兑换爆米花、饮料及电影周边</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💳</div>
+                        <h4>优惠团购</h4>
+                        <p>多人拼团享折扣，情侣套餐更实惠</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 推荐影院 -->
+        <section>
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">优选影院</h2>
+                    <a href="#" class="section-more">查看附近影院 &rarr;</a>
+                </div>
+                <div class="cinema-list">
+                    <div class="cinema-item">
+                        <div class="cinema-info">
+                            <h3>万达国际影城（CBD店）</h3>
+                            <p>朝阳区建国路93号万达广场8层</p>
+                            <div class="cinema-tags">
+                                <span class="tag imax">IMAX</span>
+                                <span class="tag dolby">杜比全景声</span>
+                                <span class="tag">激光厅</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-primary">购票</a>
+                    </div>
+                    <div class="cinema-item">
+                        <div class="cinema-info">
+                            <h3>百老汇电影中心</h3>
+                            <p>东城区东长安街1号东方广场</p>
+                            <div class="cinema-tags">
+                                <span class="tag">艺术影院</span>
+                                <span class="tag">4K修复</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-primary">购票</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 FAQ -->
+        <section style="background-color: var(--bg-section);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">购票指南</h2>
+                </div>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>买电影票支持哪些支付方式？</h4>
+                        <p>平台支持支付宝、微信支付、银联卡以及绑定信用卡支付，支持购票后7天内退款。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>如何使用优惠券？</h4>
+                        <p>在结算页面，系统会自动检测账户内的优惠券，您也可以手动选择适用券进行抵扣。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>影票有效期是多久？</h4>
+                        <p>普通场次影票自购买之日起7天内有效，过期未使用可申请退款至账户余额。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>支持退票和改签吗？</h4>
+                        <p>支持。在开场前2小时可免费退票或改签，开场后2小时内支持改签一次。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="#" class="logo">Cine<span>Pick</span></a>
+                    <p style="color: #666; font-size: 14px; margin-top: 12px;">
+                        致力于为用户提供最便捷、最优惠的在线买电影票服务。连接观众与银幕，让每一次观影都成为期待已久的享受。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>关于我们</h5>
+                    <ul>
+                        <li><a href="#">平台介绍</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>帮助中心</h5>
+                    <ul>
+                        <li><a href="#">购票流程</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>合作伙伴</h5>
+                    <ul>
+                        <li><a href="#">万达影城</a></li>
+                        <li><a href="#">CGV影城</a></li>
+                        <li><a href="#">百老汇电影中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 CinePick 在线票务平台. All Rights Reserved. 仅供演示使用，不涉及真实交易。
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>

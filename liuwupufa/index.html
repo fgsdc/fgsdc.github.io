@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="六五普法成绩查询官方入口，提供全国公民法治素养提升行动网络学习与考核成绩查询服务，支持姓名、身份证号、单位查询，查询流程及常见问题解答。">
+    <meta name="keywords" content="六五普法成绩查询, 法治素养提升行动, 普法考试, 法治教育, 成绩查询入口">
+    <title>六五普法成绩查询-全国公民法治素养提升行动官方成绩查询平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1e5c9e;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-light: #f8f9fa;
+            --text-main: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0d3b6e 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* 查询卡片 */
+        .search-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 800px;
+            margin: -40px auto 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .input-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-control {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .btn-search {
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .btn-search:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        /* 主要内容区 */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* 信息网格 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(30, 92, 158, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .info-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 查询流程 */
+        .process-section {
+            background-color: var(--white);
+            padding: 60px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #e0e0e0;
+            z-index: 0;
+        }
+
+        .step-item {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+
+        .step-item:hover .step-number {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .step-item h4 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .step-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            padding: 0 10px;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            padding: 60px 0;
+            background-color: #f1f4f8;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-item h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .search-card {
+                padding: 25px;
+                margin-top: 0;
+            }
+
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .process-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .step-item {
+                display: flex;
+                align-items: flex-start;
+                text-align: left;
+                gap: 20px;
+            }
+
+            .step-number {
+                margin: 0;
+                flex-shrink: 0;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>普法查询</span>平台
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#guide">查询指南</a></li>
+                    <li><a href="#process">流程说明</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>六五普法成绩查询</h1>
+            <p>全国公民法治素养提升行动网络学习与考核成绩统一查询平台</p>
+            
+            <div class="search-card">
+                <form id="searchForm" onsubmit="handleSearch(event)">
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" class="form-control" placeholder="请输入您的真实姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="idCard">身份证号码</label>
+                        <input type="text" id="idCard" class="form-control" placeholder="请输入18位身份证号码" maxlength="18" required>
+                    </div>
+                    <button type="submit" class="btn-search">立即查询成绩</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content container">
+        <section id="guide">
+            <div class="section-title">
+                <h2>关于六五普法成绩查询</h2>
+                <p>全国公民法治素养提升行动是贯彻落实“八五”普法规划的重要举措，旨在提升全民法治意识和法治素养。</p>
+            </div>
+
+            <div class="info-grid">
+                <article class="info-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </div>
+                    <h3>什么是法治素养提升行动？</h3>
+                    <p>这是面向全体公民开展的法治学习与考核活动。通过线上学习法律法规知识，参与在线答题，旨在帮助公民掌握基本法律常识，提升依法办事的能力。</p>
+                </article>
+
+                <article class="info-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </div>
+                    <h3>查询范围与对象</h3>
+                    <p>查询范围覆盖全国所有参加“全国公民法治素养提升行动”网络学习的学员。通常包括公务员、企事业单位职工、在校学生及社会公众等群体。</p>
+                </article>
+
+                <article class="info-card">
+                    <div class="icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h3>成绩构成说明</h3>
+                    <p>普法考试成绩通常由“学习时长”、“在线测试”和“综合评价”三部分组成。不同地区和单位可能设有具体的合格分数线，请以当地普法办公布的标准为准。</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="process" class="process-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>查询流程</h2>
+                    <p>按照以下步骤即可快速查询您的普法成绩</p>
+                </div>
+                <div class="process-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h4>登录平台</h4>
+                        <p>访问全国普法网或您所在地区指定的普法学习平台，使用个人账号登录。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h4>选择模块</h4>
+                        <p>在个人中心找到“成绩查询”或“考核结果”模块，点击进入。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h4>核对信息</h4>
+                        <p>系统将根据姓名和身份证号自动匹配，请核对显示的学习记录是否正确。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <h4>下载/打印</h4>
+                        <p>查询到合格成绩后，可在线生成证书或打印成绩单作为证明材料。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+                <p>关于六五普法成绩查询的常见问题汇总</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>查询不到成绩怎么办？</h4>
+                    <p>请首先确认您的姓名和身份证号输入无误。若信息正确但仍无法查询，可能是系统数据同步延迟，建议稍后重试或联系当地普法办工作人员。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>成绩不合格如何补考？</h4>
+                    <p>一般普法学习平台会提供补考机会。请登录个人学习中心查看补考安排，或关注平台发布的补考通知，按时参加补测。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>证书在哪里下载？</h4>
+                    <p>成绩合格后，在成绩查询页面通常会有“下载证书”或“打印成绩单”的按钮，点击即可保存或打印。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>忘记登录密码怎么办？</h4>
+                    <p>您可以通过注册手机号或绑定邮箱进行密码找回，部分地区支持通过单位普法管理员重置密码。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于平台</h4>
+                    <p>本平台为全国公民法治素养提升行动提供便捷的成绩查询服务，致力于打造公开、透明、高效的普法考核体系。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">普法网首页</a></li>
+                        <li><a href="#">学习资料下载</a></li>
+                        <li><a href="#">最新通知公告</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>咨询热线：400-XXX-XXXX</li>
+                        <li>工作时间：周一至周五 9:00-18:00</li>
+                        <li>电子邮箱：support@pufa.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 全国公民法治素养提升行动成绩查询系统 版权所有 | 京ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleSearch(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const idCard = document.getElementById('idCard').value.trim();
+            
+            if (name && idCard) {
+                // 模拟查询交互反馈
+                const btn = document.querySelector('.btn-search');
+                const originalText = btn.innerText;
+                
+                btn.innerText = '正在查询...';
+                btn.style.opacity = '0.8';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    // 这里仅做前端演示，实际应跳转或显示结果
+                    // 在真实环境中，这里会提交表单到后端API
+                    const resultArea = document.createElement('div');
+                    resultArea.style.marginTop = '20px';
+                    resultArea.style.padding = '15px';
+                    resultArea.style.backgroundColor = '#d4edda';
+                    resultArea.style.color = '#155724';
+                    resultArea.style.borderRadius = '4px';
+                    resultArea.innerHTML = `<strong>查询成功！</strong><br>姓名：${name}，身份证号：${idCard}，成绩：合格 (85分)。<br><small>（此为演示结果，请以官方系统数据为准）</small>`;
+                    
+                    document.getElementById('searchForm').appendChild(resultArea);
+                    
+                    btn.innerText = '查询成功';
+                    btn.style.backgroundColor = '#28a745';
+                }, 1500);
+            } else {
+                alert('请完整填写姓名和身份证号');
+            }
+        }
+    </script>
+</body>
+</html>

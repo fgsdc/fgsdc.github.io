@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="狗熊出装 - 提供英雄联盟德莱厄斯（诺克萨斯之手）最全面的出装推荐、符文搭配、连招技巧及实战攻略，助你上分。">
+    <meta name="keywords" content="狗熊出装,德莱厄斯,诺克萨斯之手,英雄联盟出装,上单攻略">
+    <title>狗熊出装 - 英雄联盟德莱厄斯最强连招与装备指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #b91c1c;
+            --primary-dark: #7f1d1d;
+            --secondary-color: #1f2937;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-secondary: #4b5563;
+            --accent-gold: #d97706;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid #e5e7eb;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Core Build Section */
+        .build-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h2 {
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .build-content {
+            padding: 1.5rem;
+        }
+
+        .tier-list {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tier-item {
+            flex: 1;
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+
+        .tier-item.best {
+            border-color: var(--accent-gold);
+            background: #fffbeb;
+        }
+
+        .tier-item.best h3 {
+            color: var(--accent-gold);
+        }
+
+        .item-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1rem;
+        }
+
+        .item-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-color);
+        }
+
+        .item-icon {
+            width: 48px;
+            height: 48px;
+            background: #e5e7eb;
+            border-radius: 50%;
+            margin: 0 auto 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .item-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .item-price {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Rune Section */
+        .rune-section {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .rune-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .rune-column h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .rune-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .rune-icon {
+            width: 20px;
+            height: 20px;
+            background: #e5e7eb;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f3f4f6;
+        }
+
+        .combo-list li {
+            margin-bottom: 1rem;
+        }
+
+        .combo-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .combo-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .combo-key {
+            background: #e5e7eb;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.8rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1rem 1.5rem;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: #9ca3af;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #374151;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .rune-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+                <span>狗熊出装</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">出装推荐</a></li>
+                    <li><a href="#">符文天赋</a></li>
+                    <li><a href="#">连招教学</a></li>
+                    <li><a href="#">对线技巧</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn">搜索</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>英雄联盟 德莱厄斯</h1>
+        <p>掌握核心连招与出装节奏，成为战场上的绞肉机。</p>
+        <div class="hero-tags">
+            <span class="tag">上单</span>
+            <span class="tag">高爆发</span>
+            <span class="tag">团战收割</span>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Main Content -->
+        <main>
+            <!-- Core Build Section -->
+            <section class="build-card">
+                <div class="card-header">
+                    <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> 核心出装</h2>
+                </div>
+                <div class="build-content">
+                    <div class="tier-list">
+                        <div class="tier-item best">
+                            <h3>最强出装</h3>
+                            <p>针对当前版本环境优化</p>
+                        </div>
+                        <div class="tier-item">
+                            <h3>标准出装</h3>
+                            <p>通用型选择，容错率高</p>
+                        </div>
+                        <div class="tier-item">
+                            <h3>顺风出装</h3>
+                            <p>后期发力，碾压敌方</p>
+                        </div>
+                    </div>
+
+                    <div class="item-grid">
+                        <div class="item-card">
+                            <div class="item-icon">⚔️</div>
+                            <div class="item-name">三相之力</div>
+                            <div class="item-price">3300 金币</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🛡️</div>
+                            <div class="item-name">斯特拉克的挑战护手</div>
+                            <div class="item-price">2200 金币</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🩸</div>
+                            <div class="item-name">斯特拉克的挑战护手</div>
+                            <div class="item-price">2200 金币</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">👢</div>
+                            <div class="item-name">水银之靴</div>
+                            <div class="item-price">1100 金币</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🛡️</div>
+                            <div class="item-name">玛莫提乌斯之噬</div>
+                            <div class="item-price">3200 金币</div>
+                        </div>
+                        <div class="item-card">
+                            <div class="item-icon">🗡️</div>
+                            <div class="item-name">黑色切割者</div>
+                            <div class="item-price">3100 金币</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Rune Section -->
+            <section class="rune-section">
+                <div class="card-header" style="padding: 0 0 1rem 0; border: none;">
+                    <h2><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 符文天赋</h2>
+                </div>
+                <div class="rune-grid">
+                    <div class="rune-column">
+                        <h3>主系：征服者</h3>
+                        <ul class="rune-list">
+                            <li><span class="rune-icon">1</span> 征服者：持续作战能力</li>
+                            <li><span class="rune-icon">2</span> 凯旋：击杀回血</li>
+                            <li><span class="rune-icon">3</span> 传说：血统：吸血续航</li>
+                            <li><span class="rune-icon">4</span> 致命一击：斩杀线提升</li>
+                        </ul>
+                    </div>
+                    <div class="rune-column">
+                        <h3>副系：坚决</h3>
+                        <ul class="rune-list">
+                            <li><span class="rune-icon">1</span> 调整：减少控制时间</li>
+                            <li><span class="rune-icon">2</span> 复苏之风：受伤回复</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">常见问题</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Q: 狗熊第一件出什么装备最好？<span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">A: 通常建议第一件出三相之力。它能提供攻击力、攻速和移速，配合狗熊的被动，能显著提升他的清线能力和消耗能力。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: 如何打出最高伤害？<span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">A: 优先使用E技能（无情铁手）抓取敌人，使其无法移动并增加伤害，随后接Q（大杀四方）和W（致残打击）打出爆发。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q: 面对高回复英雄怎么办？<span class="faq-icon">▼</span></div>
+                    <div class="faq-answer">A: 可以将水银之靴替换为斯特拉克的挑战护手，或者选择玛莫提乌斯之噬（饮血剑）来压制敌方治疗。</div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-card">
+                <h3>必学连招</h3>
+                <ul class="combo-list">
+                    <li>
+                        <div class="combo-title">
+                            <span>EQAW</span>
+                            <span class="combo-key">常规连招</span>
+                        </div>
+                        <div class="combo-desc">E抓人 -> Q横扫 -> W减伤 -> A补伤害。这是最稳定的消耗和单杀手段。</div>
+                    </li>
+                    <li>
+                        <div class="combo-title">
+                            <span>EQRA</span>
+                            <span class="combo-key">爆发连招</span>
+                        </div>
+                        <div class="combo-desc">E抓人 -> Q -> R（诺克萨斯之怒） -> A。在敌人血量较低时使用，直接斩杀。</div>
+                    </li>
+                    <li>
+                        <div class="combo-title">
+                            <span>QWE</span>
+                            <span class="combo-key">清线连招</span>
+                        </div>
+                        <div class="combo-desc">Q -> W -> E。快速清掉一波小兵，用于推线后支援或越塔。</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>对线技巧</h3>
+                <ul class="combo-list">
+                    <li>
+                        <div class="combo-title">一级团</div>
+                        <div class="combo-desc">利用被动加速，在1级时直接冲上去尝试消耗或击杀。</div>
+                    </li>
+                    <li>
+                        <div class="combo-title">回城时机</div>
+                        <div class="combo-desc">利用W技能的护盾，在半血时回城，落地时刚好满血。</div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于狗熊出装</h4>
+                <p>专注英雄联盟德莱厄斯（诺克萨斯之手）的攻略分享，提供最新版本的出装、符文及实战教学。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">出装推荐</a></li>
+                    <li><a href="#">符文搭配</a></li>
+                    <li><a href="#">视频教学</a></li>
+                    <li><a href="#">英雄图鉴</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>免责声明</h4>
+                <p>本站内容仅供学习交流，游戏数据基于官方版本模拟，请以游戏内实际效果为准。</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 狗熊出装 - 英雄联盟攻略站
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+  </html>
